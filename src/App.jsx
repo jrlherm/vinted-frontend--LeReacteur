@@ -7,13 +7,14 @@ import Home from "./page/Home";
 // Components
 import Header from "./components/Header";
 // Images
+import heroBg from "./assets/img/hero.jpg";
 
 function App() {
   return (
     <Router>
       <Header />
       <Routes>
-        <Route parh="/" element={<Home />} />
+        <Route path="/" element={<Home />} />
       </Routes>
     </Router>
   );
