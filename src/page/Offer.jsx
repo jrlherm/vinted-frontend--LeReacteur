@@ -1,12 +1,15 @@
-import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const Offer = () => {
+  const { id } = useParams();
+  console.log(id);
+
+  // Find the offer where the ID is equal to the params of the page.
+  const offerInfos = "aze";
+
   return (
     <div className="main">
-      <h1>Offer Page</h1>
-      <Link to={`/`}>
-        <p>Naviguer vers la page "/"</p>
-      </Link>
+      <p>l'ID de cette offre est : {id}</p>
     </div>
   );
 };
