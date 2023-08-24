@@ -12,40 +12,47 @@ const Offer = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://lereacteur-vinted-api.herokuapp.com/offers/:{id}`
+          `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
         );
         setOfferData(response.data);
         setIsLoading(false);
-        console.log("offerData ==>", offerData);
       } catch (error) {
         console.log(error.message);
       }
     };
 
     fetchData();
-  }, []);
+  }, [id]);
 
   return isLoading ? (
     <div className="container">
       <p>Loading ...</p>
     </div>
   ) : (
-    <div className="main">
+    <div className="offer">
       <div className="container">
         <div className="offer-left">
-          <img src="#" alt="" className="offer-img" />
+          <img src={offerData.product_image.url} alt="" className="offer-img" />
         </div>
         <div className="offer-right">
-          <p className="offer-price"></p>
+          <p className="offer-price">{offerData.product_price} €</p>
+          <button>Acheter</button>
+          <button>Faire une offre</button>
           <div className="offer-infos">
-            <div className="offer-brand"></div>
-            <div className="offer-size"></div>
-            <div className="offer-state"></div>
-            <div className="offer-color"></div>
-            <div className="offer-location"></div>
+            {offerData.product_details.map((detail, index) => (
+              <div
+                key={index}
+                className={`offer-${Object.keys(detail)[0].toLowerCase()}`}
+              >
+                <p>
+                  <span>{Object.keys(detail)[0]}</span>
+                  <span>{Object.values(detail)[0]}</span>
+                </p>
+              </div>
+            ))}
           </div>
+          <p className="offer-name">{offerData.product_name}</p>
         </div>
-        <p>l'ID de cette offre est : {id}</p>
       </div>
     </div>
   );
