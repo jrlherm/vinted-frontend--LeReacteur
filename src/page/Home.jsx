@@ -29,9 +29,6 @@ const Home = () => {
     <div className="main">
       <Hero />
       <Posts data={data} isLoading={isLoading} />
-      <Link to={`/offer/1234`}>
-        Naviguer vers la page offer/:id avec comme id 1234
-      </Link>
     </div>
   );
 };

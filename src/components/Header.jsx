@@ -1,10 +1,10 @@
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 
 import vintedLogo from "../assets/img/vinted-logo.png";
-const refresh = () => window.location.reload(true);
+// const refresh = () => window.location.reload(true);
 
-const Header = () => {
+const Header = ({ setUserToken }) => {
   return (
     <div className="header">
       <div className="container">
@@ -22,9 +22,7 @@ const Header = () => {
             <button
               onClick={() => {
                 Cookies.remove("token");
-                {
-                  refresh();
-                }
+                setUserToken(null);
               }}
             >
               Se déconnecter

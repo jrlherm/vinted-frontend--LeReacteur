@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
-const Signin = () => {
+const Signin = ({ userToken, setUserToken }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
@@ -39,10 +39,12 @@ const Signin = () => {
 
       // If the token has been created redirect to "/"
       if (response.data.token) {
+        // setUserToken(userToken);
+        setUserToken(userToken);
         navigate("/");
       }
     } catch (error) {
-      console.log("Error during account creation ==> ", error.message);
+      console.log("Error during account login ==> ", error.message);
     }
     setIsLoading(false);
   };

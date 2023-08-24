@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
-const Signup = () => {
+const Signup = (userToken, setUserToken) => {
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     username: "",
@@ -42,6 +42,7 @@ const Signup = () => {
 
       // If the token has been created redirect to "/"
       if (response.data.token) {
+        setUserToken(Cookies.get("token"));
         navigate("/");
       }
     } catch (error) {

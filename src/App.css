@@ -48,15 +48,15 @@ h1 {
 }
 
 .header button {
-  border: 1px solid #007782;
+  border: 1px solid #2cb1ba;
   padding: 12px;
   border-radius: 5px;
   background-color: transparent;
-  color: #007782;
+  color: #2cb1ba;
 }
 
 .header button:last-child {
-  background-color: #007782;
+  background-color: #2cb1ba;
   color: #fff;
 }
 .header input {
@@ -93,7 +93,7 @@ h1 {
 }
 .hero-cta button {
   width: 100%;
-  background-color: #007782;
+  background-color: #2cb1ba;
   color: #fff;
   font-size: 16px;
   line-height: 22px;
@@ -179,7 +179,7 @@ h1 {
   font-size: 14px;
 }
 .offer .offer-right button:first-of-type {
-  background-color: #007782;
+  background-color: #2cb1ba;
   color: #fff;
   border: none;
   width: 100%;
@@ -189,8 +189,8 @@ h1 {
 }
 .offer .offer-right button:last-of-type {
   background-color: #fff;
-  color: #007782;
-  border: 1px solid #007782;
+  color: #2cb1ba;
+  border: 1px solid #2cb1ba;
   width: 100%;
   padding: 16px;
   border-radius: 5px;
