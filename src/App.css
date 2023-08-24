@@ -54,6 +54,7 @@ h1 {
   background-color: transparent;
   color: #007782;
 }
+
 .header button:last-child {
   background-color: #007782;
   color: #fff;
@@ -200,17 +201,21 @@ h1 {
 }
 
 /* SIGNUP */
-.signup {
+.signup,
+.signin {
   text-align: center;
 }
-.signup h1 {
+.signup h1,
+.signin h1 {
   margin: 20px 0;
 }
-.signup form {
+.signup form,
+.signin form {
   width: 280px;
   margin: 0 auto;
 }
-.signup input {
+.signup input,
+.signin input {
   width: 100%;
   font-size: 13px;
   padding: 12px;
@@ -239,7 +244,8 @@ h1 {
   line-height: 18px;
 }
 
-.signup form button {
+.signup form button,
+.signin form button {
   width: 100%;
   background-color: #2cb1ba;
   color: #fff;
@@ -250,7 +256,8 @@ h1 {
   font-size: 16px;
 }
 
-.signup form a {
+.signup form a,
+.signin form a {
   color: #2cb1ba;
   font-family: "Bw Modelica";
   font-size: 12px;

@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 import vintedLogo from "../assets/img/vinted-logo.png";
+const refresh = () => window.location.reload(true);
 
 const Header = () => {
   return (
@@ -14,13 +16,31 @@ const Header = () => {
             <input type="text" placeholder="Rechercher des articles" />
           </div>
         </div>
-        <div className="header-right">
-          <Link to="/signup">
-            <button>S'inscrire</button>
-          </Link>
-          <button>Se connecter</button>
-          <button>Vends tes articles</button>
-        </div>
+        {Cookies.get("token") ? (
+          <div className="header-right">
+            <button>Vends tes articles</button>
+            <button
+              onClick={() => {
+                Cookies.remove("token");
+                {
+                  refresh();
+                }
+              }}
+            >
+              Se déconnecter
+            </button>
+          </div>
+        ) : (
+          <div className="header-right">
+            <Link to="/signup">
+              <button>S'inscrire</button>
+            </Link>
+            <Link to="/signin">
+              <button>Se connecter</button>
+            </Link>
+            <button>Vends tes articles</button>
+          </div>
+        )}
       </div>
     </div>
   );

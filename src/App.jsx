@@ -6,6 +6,7 @@ import "./App.css";
 import Home from "./page/Home";
 import Offer from "./page/Offer";
 import Signup from "./page/Signup";
+import Signin from "./page/Signin";
 // Components
 import Header from "./components/Header";
 
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/offer/:id" element={<Offer />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/signin" element={<Signin />} />
       </Routes>
     </Router>
   );

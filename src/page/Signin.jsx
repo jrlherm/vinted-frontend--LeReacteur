@@ -3,25 +3,22 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
-const Signup = () => {
+const Signin = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
-    username: "",
     email: "",
     password: "",
-    subscribe: false,
   });
 
   const navigate = useNavigate();
 
   // Function to handle every change in the form to store it in formData
   const handleChange = (event) => {
-    const { name, value, type, checked } = event.target;
-    const newValue = type === "checkbox" ? checked : value;
+    const { name, value } = event.target;
 
     setFormData((prevData) => ({
       ...prevData,
-      [name]: newValue,
+      [name]: value,
     }));
   };
 
@@ -31,7 +28,7 @@ const Signup = () => {
 
     try {
       const response = await axios.post(
-        "https://lereacteur-vinted-api.herokuapp.com/user/signup",
+        "https://lereacteur-vinted-api.herokuapp.com/user/Login",
         formData
       );
 
@@ -51,17 +48,10 @@ const Signup = () => {
   };
 
   return (
-    <div className="signup">
+    <div className="signin">
       <div className="container">
-        <h1>S'inscrire</h1>
+        <h1>Se connecter</h1>
         <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Nom d'utilisateur"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-          />
           <input
             type="email"
             placeholder="Email"
@@ -76,28 +66,15 @@ const Signup = () => {
             value={formData.password}
             onChange={handleChange}
           />
-          <div className="enroll-newsletter">
-            <input
-              type="checkbox"
-              name="subscribe"
-              checked={formData.subscribe}
-              onChange={handleChange}
-            />
-            <label htmlFor="subscribe">S'inscrire à la newsletter</label>
-          </div>
-          <p>
-            En m'inscrivant je confirme avoir lu et accepté les Termes &
-            Conditions et Politique de Confidentialité de Vinted. Je confirme
-            avoir au moins 18 ans.
-          </p>
+
           <button type="submit" disabled={isLoading}>
-            {isLoading ? "Chargement..." : "S'inscrire"}
+            {isLoading ? "Chargement..." : "Se connecter"}
           </button>
-          <Link to="/signin">Tu as déjà un compte ? Connecte-toi !</Link>
+          <Link to="/signin">Tu n'as pas de compte ? Inscris-toi !</Link>
         </form>
       </div>
     </div>
   );
 };
 
-export default Signup;
+export default Signin;
