@@ -13,16 +13,7 @@ import Header from "./components/Header";
 import Cookies from "js-cookie";
 
 function App() {
-  const [userToken, setUserToken] = useState();
-
-  useEffect(() => {
-    if (Cookies.get("token")) {
-      const cookieToken = Cookies.get("token");
-      setUserToken(cookieToken);
-      console.log("Cookie ===> ", Cookies.get("token"));
-      console.log("userToken State ===> ", userToken);
-    } else console.log("No token found. Please connect or signup.");
-  }, [userToken]);
+  const [userToken, setUserToken] = useState(Cookies.get("token") || null);
 
   return (
     <Router>
