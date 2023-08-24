@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 const Signup = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -23,6 +24,8 @@ const Signup = () => {
   };
 
   const handleSubmit = async (click) => {
+    const navigate = useNavigate();
+
     click.preventDefault();
     setIsLoading(true);
 
@@ -31,9 +34,16 @@ const Signup = () => {
         "https://lereacteur-vinted-api.herokuapp.com/user/signup",
         formData
       );
-      console.log(response.data);
+      Cookies.set("token", response.data.token);
+      console.log("response.data => ", response.data);
+      console.log("response.data.token => ", response.data.token);
+
+      // If the token has been created redirect to "/"
+      if (response.data.token) {
+        navigate("/");
+      }
     } catch (error) {
-      console.log(error.message);
+      console.log("Error during account creation ==> ", error.message);
     }
     setIsLoading(false);
   };
