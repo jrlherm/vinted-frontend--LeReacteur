@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+import Loader from "../components/Loader";
+
 const Offer = () => {
   const { id } = useParams();
 
@@ -25,9 +27,7 @@ const Offer = () => {
   }, [id]);
 
   return isLoading ? (
-    <div className="container">
-      <p>Loading ...</p>
-    </div>
+    <Loader />
   ) : (
     <div className="offer">
       <div className="container">

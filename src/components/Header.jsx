@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 import vintedLogo from "../assets/img/vinted-logo.png";
 // const refresh = () => window.location.reload(true);
 
-const Header = ({ setUserToken }) => {
+const Header = ({ setUserToken, visible, setVisible }) => {
   return (
     <div className="header">
       <div className="container">
@@ -30,13 +30,14 @@ const Header = ({ setUserToken }) => {
           </div>
         ) : (
           <div className="header-right">
+            <button onClick={() => setVisible(true)}>S'inscrire MODAL</button>
+            <button onClick={() => setVisible(true)}>Se connecter MODAL</button>
             <Link to="/signup">
               <button>S'inscrire</button>
             </Link>
             <Link to="/signin">
               <button>Se connecter</button>
             </Link>
-            <button>Vends tes articles</button>
           </div>
         )}
       </div>

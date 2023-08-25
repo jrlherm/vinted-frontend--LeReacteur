@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
+import Loader from "../components/Loader";
 
 const Posts = ({ data, isLoading }) => {
   return isLoading ? (
-    <p>Loading ...</p>
+    <Loader />
   ) : (
     <div className="posts">
       <div className="container">

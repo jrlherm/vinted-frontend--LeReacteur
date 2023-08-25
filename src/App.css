@@ -262,6 +262,46 @@ h1 {
   font-family: "Bw Modelica";
   font-size: 12px;
 }
+
+/* MODAL */
+.modal-root {
+  color: red;
+  /* Pour que la modal prenne tout l'écran : */
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal {
+  background-color: white;
+  width: 700px;
+  height: 400px;
+}
+
+/* ------ */
+/* LOADER */
+/* ------ */
+.loader-block {
+  /* height: 100vh; */
+  margin-top: 150px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #01ccbc;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
 /* MEDIA QUERIES */
 @media (max-width: 1468px) {
   .container {
