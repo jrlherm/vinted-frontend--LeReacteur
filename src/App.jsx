@@ -9,6 +9,7 @@ import Home from "./page/Home";
 import Offer from "./page/Offer";
 import Signup from "./page/Signup";
 import Signin from "./page/Signin";
+import Publish from "./page/Publish";
 // Components
 import Header from "./components/Header";
 import Modal from "./components/Modal";
@@ -40,6 +41,7 @@ function App() {
               <Signin userToken={userToken} setUserToken={setUserToken} />
             }
           />
+          <Route path="/publish" element={<Publish userToken={userToken} />} />
         </Routes>
         {visible && <Modal setVisible={setVisible} />}
       </Router>

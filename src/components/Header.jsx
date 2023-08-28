@@ -18,7 +18,9 @@ const Header = ({ setUserToken, visible, setVisible }) => {
         </div>
         {Cookies.get("token") ? (
           <div className="header-right">
-            <button>Vends tes articles</button>
+            <Link to="/publish">
+              <button>Vends tes articles</button>
+            </Link>
             <button
               onClick={() => {
                 Cookies.remove("token");
