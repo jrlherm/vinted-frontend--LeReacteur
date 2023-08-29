@@ -7,7 +7,7 @@ const Posts = ({ data, isLoading }) => {
   ) : (
     <div className="posts">
       <div className="container">
-        {data.offers.map((post) => {
+        {data?.offers?.map((post) => {
           return (
             <Link to={`/offer/${post._id}`} key={post._id}>
               <div className="post">

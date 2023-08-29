@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -36,8 +36,16 @@ const Offer = () => {
         </div>
         <div className="offer-right">
           <p className="offer-price">{offerData.product_price} €</p>
-          <button>Acheter</button>
-          <button>Faire une offre</button>
+          <Link
+            to="/payment"
+            state={{
+              title: offerData.product_name,
+              price: offerData.product_price,
+            }}
+          >
+            <button>Acheter</button>
+          </Link>
+          ;<button>Faire une offre</button>
           <div className="offer-infos">
             {offerData.product_details.map((detail, index) => (
               <div

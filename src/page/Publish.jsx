@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useDropzone } from "react-dropzone";
 import axios from "axios";
 
 const Publish = ({ userToken }) => {
@@ -12,6 +13,20 @@ const Publish = ({ userToken }) => {
   const [brand, setBrand] = useState("");
   const [size, setSize] = useState("");
   const [color, setColor] = useState("");
+  const [offerId, setOfferId] = useState(null);
+
+  const onDrop = (acceptedFiles) => {
+    if (acceptedFiles.length > 0) {
+      setPicture(acceptedFiles[0]);
+    }
+  };
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    // accept: "image/jpeg, image/png, image/gif",
+  });
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -39,16 +54,12 @@ const Publish = ({ userToken }) => {
         }
       );
 
-      console.log("Réponse de l'API :", response.data);
-
-      console.log(formData);
-      // Redirige automatiquement vers la page d'accueil après publication
-      return <Navigate to="/" />;
+      console.log("API answer :", response.data);
+      navigate(`/offer/${response.data._id}`);
     } catch (error) {
       console.log(formData);
 
-      console.error("Erreur lors de la publication :", error.message);
-      // Gérer l'erreur, afficher un message, etc.
+      console.error("Error during publish :", error.response);
     }
   };
 
@@ -105,10 +116,20 @@ const Publish = ({ userToken }) => {
             value={color}
             onChange={(event) => setColor(event.target.value)}
           />
-          <input
-            type="file"
-            onChange={(event) => setPicture(event.target.files[0])}
-          />
+          <div
+            {...getRootProps()}
+            className={`dropzone ${isDragActive ? "active" : ""}`}
+          >
+            <input {...getInputProps()} />
+            {isDragActive ? (
+              <p>Déposez l'image ici...</p>
+            ) : (
+              <p>
+                Glissez et déposez l'image ici, ou cliquez pour sélectionner un
+                fichier
+              </p>
+            )}
+          </div>
           <button type="submit">Publier</button>
         </form>
       </div>
