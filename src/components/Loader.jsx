@@ -1,5 +1,3 @@
-import logo from "../assets/img/vinted-logo.png";
-
 const Loader = () => {
   return (
     <div className="loader-block">

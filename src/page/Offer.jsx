@@ -48,10 +48,7 @@ const Offer = () => {
           ;<button>Faire une offre</button>
           <div className="offer-infos">
             {offerData.product_details.map((detail, index) => (
-              <div
-                key={index}
-                className={`offer-${Object.keys(detail)[0].toLowerCase()}`}
-              >
+              <div key={index}>
                 <p>
                   <span>{Object.keys(detail)[0]}</span>
                   <span>{Object.values(detail)[0]}</span>

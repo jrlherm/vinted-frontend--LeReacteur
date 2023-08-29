@@ -1,6 +1,6 @@
 import Signin from "../page/Signin";
 
-const Modal = ({ setVisible }) => {
+const Modal = ({ setVisible, setUserToken }) => {
   return (
     <div
       className="modal-root"
@@ -21,7 +21,7 @@ const Modal = ({ setVisible }) => {
         >
           X
         </button>
-        {<Signin />}
+        {<Signin setUserToken={setUserToken} />}
       </div>
     </div>
   );

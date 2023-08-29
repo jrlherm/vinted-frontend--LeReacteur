@@ -1,5 +1,5 @@
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 
@@ -63,7 +63,12 @@ const CheckoutForm = ({ userToken, price, title }) => {
           <span>{title}</span>
         </div>
         {paymentCompleted === true ? (
-          <p>Payement Completed</p>
+          <div className="payment-completed">
+            <h1>Merci. Votre paiement a bien été effectué.</h1>
+            <Link to="/">
+              <button>Retourner à l'acceuil</button>
+            </Link>
+          </div>
         ) : (
           <input type="submit" disabled={isLoading} />
         )}

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 import { useDropzone } from "react-dropzone";
 import axios from "axios";
 
@@ -13,7 +13,7 @@ const Publish = ({ userToken }) => {
   const [brand, setBrand] = useState("");
   const [size, setSize] = useState("");
   const [color, setColor] = useState("");
-  const [offerId, setOfferId] = useState(null);
+  // const [offerId, setOfferId] = useState(null);
 
   const onDrop = (acceptedFiles) => {
     if (acceptedFiles.length > 0) {
@@ -63,7 +63,7 @@ const Publish = ({ userToken }) => {
     }
   };
 
-  return (
+  return userToken ? (
     <div className="publish">
       <div className="container">
         <h1>Vends ton article</h1>
@@ -134,6 +134,8 @@ const Publish = ({ userToken }) => {
         </form>
       </div>
     </div>
+  ) : (
+    <Navigate to="/signin" />
   );
 };
 
