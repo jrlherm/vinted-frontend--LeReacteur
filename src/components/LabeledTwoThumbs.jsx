@@ -14,7 +14,7 @@ const LabeledTwoThumbs = ({ rtl, priceRange, setPriceRange }) => {
         display: "flex",
         justifyContent: "center",
         flexWrap: "wrap",
-        width: "400px",
+        width: "180px",
         margin: "0 auto",
       }}
     >

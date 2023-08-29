@@ -44,6 +44,24 @@ const Header = ({
                 }}
               />
             </div>
+            <div className="filters">
+              <div className="switch-container">
+                <span>Classer par prix</span>
+                <Switch
+                  onChange={() => setSortByPriceAsc(!sortByPriceAsc)}
+                  checked={sortByPriceAsc}
+                  onColor="#080"
+                  offColor="#888"
+                />
+              </div>
+
+              <LabeledTwoThumbs
+                setMinPrice={setMinPrice}
+                setMaxPrice={setMaxPrice}
+                priceRange={priceRange}
+                setPriceRange={setPriceRange}
+              />
+            </div>
           </div>
           {Cookies.get("token") ? (
             <div className="header-right">
@@ -75,22 +93,6 @@ const Header = ({
           )}
         </div>
       </div>
-      <div className="switch-container">
-        <span>Classer par prix</span>
-        <Switch
-          onChange={() => setSortByPriceAsc(!sortByPriceAsc)}
-          checked={sortByPriceAsc}
-          onColor="#080"
-          offColor="#888"
-        />
-      </div>
-
-      <LabeledTwoThumbs
-        setMinPrice={setMinPrice}
-        setMaxPrice={setMaxPrice}
-        priceRange={priceRange}
-        setPriceRange={setPriceRange}
-      />
     </div>
   );
 };
