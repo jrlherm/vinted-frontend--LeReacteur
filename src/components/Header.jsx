@@ -8,8 +8,10 @@ import LabeledTwoThumbs from "./LabeledTwoThumbs";
 
 const Header = ({
   setUserToken,
-  visible,
-  setVisible,
+  signinVisible,
+  setSigninVisible,
+  signupVisible,
+  setSignupVisible,
   search,
   setSearch,
   handlePriceChange,
@@ -59,16 +61,16 @@ const Header = ({
             </div>
           ) : (
             <div className="header-right">
-              <button onClick={() => setVisible(true)}>S'inscrire MODAL</button>
-              <button onClick={() => setVisible(true)}>
-                Se connecter MODAL
+              <button onClick={() => setSignupVisible(true)}>S'inscrire</button>
+              <button onClick={() => setSigninVisible(true)}>
+                Se connecter
               </button>
-              <Link to="/signup">
+              {/* <Link to="/signup">
                 <button>S'inscrire</button>
               </Link>
               <Link to="/signin">
                 <button>Se connecter</button>
-              </Link>
+              </Link> */}
             </div>
           )}
         </div>

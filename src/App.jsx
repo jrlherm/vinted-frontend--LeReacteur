@@ -14,12 +14,14 @@ import Payment from "./page/Payment";
 
 // Components
 import Header from "./components/Header";
-import Modal from "./components/Modal";
+import SigninModal from "./components/SigninModal";
+import SignupModal from "./components/SignupModal";
 import { loadStripe } from "@stripe/stripe-js";
 
 function App() {
   const [userToken, setUserToken] = useState(Cookies.get("token") || null);
-  const [visible, setVisible] = useState(false);
+  const [signinVisible, setSigninVisible] = useState(false);
+  const [signupVisible, setSignupVisible] = useState(false);
 
   const [search, setSearch] = useState("");
 
@@ -42,8 +44,8 @@ function App() {
       <Router>
         <Header
           setUserToken={setUserToken}
-          visible={visible}
-          setVisible={setVisible}
+          signinVisible={signinVisible}
+          setSigninVisible={setSigninVisible}
           search={search}
           setSearch={setSearch}
           handlePriceChange={handlePriceChange}
@@ -85,7 +87,20 @@ function App() {
             }
           />
         </Routes>
-        {visible && <Modal setVisible={setVisible} />}
+
+        {/* MODALS */}
+        {signinVisible && (
+          <SigninModal
+            setSigninVisible={setSigninVisible}
+            setUserToken={setUserToken}
+          />
+        )}
+        {signupVisible && (
+          <SignupModal
+            setSignupVisible={setSignupVisible}
+            setUserToken={setUserToken}
+          />
+        )}
       </Router>
     </div>
   );

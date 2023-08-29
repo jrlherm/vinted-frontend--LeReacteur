@@ -1,11 +1,11 @@
 import Signin from "../page/Signin";
 
-const Modal = ({ setVisible, setUserToken }) => {
+const Modal = ({ setSigninVisible, setUserToken }) => {
   return (
     <div
       className="modal-root"
       onClick={() => {
-        setVisible(false);
+        setSigninVisible(false);
       }}
     >
       <div
@@ -16,7 +16,7 @@ const Modal = ({ setVisible, setUserToken }) => {
       >
         <button
           onClick={(event) => {
-            setVisible(false);
+            setSigninVisible(false);
           }}
         >
           X
