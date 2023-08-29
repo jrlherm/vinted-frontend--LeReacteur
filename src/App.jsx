@@ -46,6 +46,8 @@ function App() {
           setUserToken={setUserToken}
           signinVisible={signinVisible}
           setSigninVisible={setSigninVisible}
+          signupVisible={signupVisible}
+          setSignupVisible={setSignupVisible}
           search={search}
           setSearch={setSearch}
           handlePriceChange={handlePriceChange}

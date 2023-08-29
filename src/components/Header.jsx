@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Cookies from "js-cookie";
 import vintedLogo from "../assets/img/vinted-logo.png";
 import Switch from "react-switch";
-
 import LabeledTwoThumbs from "./LabeledTwoThumbs";
+
+import arrowUpIcon from "../assets/img/arrow-up.svg";
+import arrowDownIcon from "../assets/img/arrow-down.svg";
 
 const Header = ({
   setUserToken,
-  signinVisible,
   setSigninVisible,
-  signupVisible,
   setSignupVisible,
   search,
   setSearch,
@@ -20,11 +20,14 @@ const Header = ({
   setSortByPriceAsc,
   sortByPriceAsc,
 }) => {
-  const [priceRange, setPriceRange] = useState([0, 100]);
+  const [priceRange, setPriceRange] = useState([0, 1000]);
 
   useEffect(() => {
     setPriceRange(handlePriceChange(priceRange));
   }, [handlePriceChange, priceRange]);
+
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   return (
     <div>
@@ -44,24 +47,54 @@ const Header = ({
                 }}
               />
             </div>
-            <div className="filters">
-              <div className="switch-container">
-                <span>Classer par prix</span>
-                <Switch
-                  onChange={() => setSortByPriceAsc(!sortByPriceAsc)}
-                  checked={sortByPriceAsc}
-                  onColor="#080"
-                  offColor="#888"
-                />
-              </div>
 
-              <LabeledTwoThumbs
-                setMinPrice={setMinPrice}
-                setMaxPrice={setMaxPrice}
-                priceRange={priceRange}
-                setPriceRange={setPriceRange}
-              />
-            </div>
+            {isHomePage && (
+              <div className="filters">
+                <div className="switch-container">
+                  <p>Trier par prix</p>
+                  <Switch
+                    onChange={() => setSortByPriceAsc(!sortByPriceAsc)}
+                    checked={sortByPriceAsc}
+                    onColor="#2cb1ba"
+                    offColor="#2cb1ba"
+                    checkedIcon={
+                      <img
+                        src={arrowDownIcon}
+                        alt="Arrow Down"
+                        style={{
+                          width: "18px",
+                          height: "18px",
+                          marginTop: "5px",
+                          marginLeft: "5px",
+                        }}
+                      />
+                    }
+                    uncheckedIcon={
+                      <img
+                        src={arrowUpIcon}
+                        alt="Arrow Up"
+                        style={{
+                          width: "18px",
+                          height: "18px",
+                          marginTop: "5px",
+                          marginLeft: "5px",
+                        }}
+                      />
+                    }
+                  />
+                  {console.log(sortByPriceAsc)}
+                </div>
+                <div className="price-selector">
+                  <p>Fourchette de prix</p>
+                  <LabeledTwoThumbs
+                    setMinPrice={setMinPrice}
+                    setMaxPrice={setMaxPrice}
+                    priceRange={priceRange}
+                    setPriceRange={setPriceRange}
+                  />
+                </div>
+              </div>
+            )}
           </div>
           {Cookies.get("token") ? (
             <div className="header-right">
@@ -83,12 +116,6 @@ const Header = ({
               <button onClick={() => setSigninVisible(true)}>
                 Se connecter
               </button>
-              {/* <Link to="/signup">
-                <button>S'inscrire</button>
-              </Link>
-              <Link to="/signin">
-                <button>Se connecter</button>
-              </Link> */}
             </div>
           )}
         </div>

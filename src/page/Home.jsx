@@ -40,7 +40,7 @@ const Home = ({ search, minPrice, maxPrice, sortByPriceAsc }) => {
     };
 
     fetchData();
-  }, [search, minPrice, maxPrice]);
+  }, [search, minPrice, maxPrice, sortByPriceAsc]);
 
   return (
     <div className="main">

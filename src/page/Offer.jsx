@@ -45,7 +45,7 @@ const Offer = () => {
           >
             <button>Acheter</button>
           </Link>
-          ;<button>Faire une offre</button>
+          <button>Faire une offre</button>
           <div className="offer-infos">
             {offerData.product_details.map((detail, index) => (
               <div key={index}>

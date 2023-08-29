@@ -82,66 +82,83 @@ const Publish = ({ userToken }) => {
               </p>
             )}
           </div>
-          <div>
-            <span>Titre</span>
-            <input
-              type="text"
-              placeholder="Titre"
-              value={title}
-              onChange={(event) => setTitle(event.target.value)}
-            />
+          <div className="input-block">
+            <div className="publish-input">
+              <p>Titre</p>
+              <input
+                type="text"
+                placeholder="Titre"
+                value={title}
+                onChange={(event) => setTitle(event.target.value)}
+              />
+            </div>
+            <div className="publish-input">
+              <p>Description</p>
+              <input
+                className="text-area"
+                type="text-area"
+                placeholder="Description"
+                value={description}
+                onChange={(event) => setDescription(event.target.value)}
+              />
+            </div>
           </div>
-          <div>
-            <span>Description</span>
-            <input
-              type="text"
-              placeholder="Description"
-              value={description}
-              onChange={(event) => setDescription(event.target.value)}
-            />
+          <div className="input-block">
+            <div className="publish-input">
+              <p>Prix</p>
+              <input
+                type="number"
+                placeholder="Prix"
+                value={price}
+                onChange={(event) => setPrice(event.target.value)}
+              />
+            </div>
+            <div className="publish-input">
+              <p>État</p>
+              <input
+                type="text"
+                placeholder="État"
+                value={condition}
+                onChange={(event) => setCondition(event.target.value)}
+              />
+            </div>
+            <div className="publish-input">
+              <p>Lieu</p>
+              <input
+                type="text"
+                placeholder="Lieu"
+                value={city}
+                onChange={(event) => setCity(event.target.value)}
+              />
+            </div>
+            <div className="publish-input">
+              <p>Marque</p>
+              <input
+                type="text"
+                placeholder="Marque"
+                value={brand}
+                onChange={(event) => setBrand(event.target.value)}
+              />
+            </div>
+            <div className="publish-input">
+              <p>Taille</p>
+              <input
+                type="text"
+                placeholder="Taille"
+                value={size}
+                onChange={(event) => setSize(event.target.value)}
+              />
+            </div>
+            <div className="publish-input">
+              <p>Couleur</p>
+              <input
+                type="text"
+                placeholder="Couleur"
+                value={color}
+                onChange={(event) => setColor(event.target.value)}
+              />
+            </div>
           </div>
-          <p>Prix</p>
-          <input
-            type="number"
-            placeholder="Prix"
-            value={price}
-            onChange={(event) => setPrice(event.target.value)}
-          />
-          <p>État</p>
-          <input
-            type="text"
-            placeholder="État"
-            value={condition}
-            onChange={(event) => setCondition(event.target.value)}
-          />
-          <p>Lieu</p>
-          <input
-            type="text"
-            placeholder="Lieu"
-            value={city}
-            onChange={(event) => setCity(event.target.value)}
-          />
-          <p>Marque</p>
-          <input
-            type="text"
-            placeholder="Marque"
-            value={brand}
-            onChange={(event) => setBrand(event.target.value)}
-          />
-          <p>Taille</p>
-          <input
-            type="text"
-            placeholder="Taille"
-            value={size}
-            onChange={(event) => setSize(event.target.value)}
-          />
-          <p>Couleur</p>
-          <input
-            type="text"
-            placeholder="Couleur"
-            value={color}
-            onChange={(event) => setColor(event.target.value)}
-          />
           <button type="submit">Publier</button>
         </form>
       </div>

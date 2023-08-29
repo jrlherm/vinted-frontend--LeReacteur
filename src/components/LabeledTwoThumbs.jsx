@@ -14,7 +14,7 @@ const LabeledTwoThumbs = ({ rtl, priceRange, setPriceRange }) => {
         display: "flex",
         justifyContent: "center",
         flexWrap: "wrap",
-        width: "180px",
+        width: "480px",
         margin: "0 auto",
       }}
     >
@@ -61,9 +61,9 @@ const LabeledTwoThumbs = ({ rtl, priceRange, setPriceRange }) => {
             {...props}
             style={{
               ...props.style,
-              height: "42px",
-              width: "42px",
-              borderRadius: "4px",
+              height: "12px",
+              width: "12px",
+              borderRadius: "50%",
               backgroundColor: "#FFF",
               display: "flex",
               justifyContent: "center",
@@ -77,7 +77,7 @@ const LabeledTwoThumbs = ({ rtl, priceRange, setPriceRange }) => {
                 top: "-28px",
                 color: "#fff",
                 fontWeight: "bold",
-                fontSize: "14px",
+                fontSize: "10px",
                 fontFamily: "Arial,Helvetica Neue,Helvetica,sans-serif",
                 padding: "4px",
                 borderRadius: "4px",

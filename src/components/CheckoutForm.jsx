@@ -8,7 +8,7 @@ const CheckoutForm = ({ userToken, price, title }) => {
   const [paymentCompleted, setPaymentCompleted] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
-
+  const total = price + 0.4 + 1.99;
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -43,36 +43,53 @@ const CheckoutForm = ({ userToken, price, title }) => {
 
   return (
     <div className="checkout-form">
-      <form onSubmit={handleSubmit}>
-        <h1>Résumé de la commande</h1>
-        <div className="payment-price">
-          <span>Commande</span>
-          <span>{price}</span>
-        </div>
-        <div className="payment-protection">
-          <span>Commande</span>
-          <span>0,40 €</span>
-        </div>
-        <div className="payment-shipping">
-          <span>Frais de port</span>
-          <span>1,99 €</span>
-        </div>
-        <CardElement />
-
-        <div className="payment-product-name">
-          <span>{title}</span>
-        </div>
-        {paymentCompleted === true ? (
-          <div className="payment-completed">
-            <h1>Merci. Votre paiement a bien été effectué.</h1>
-            <Link to="/">
-              <button>Retourner à l'acceuil</button>
-            </Link>
+      <div className="container">
+        <form onSubmit={handleSubmit}>
+          <h1>Résumé de la commande</h1>
+          <div className="payment-input payment-price">
+            <span>Commande</span>
+            <span>{price} €</span>
           </div>
-        ) : (
-          <input type="submit" disabled={isLoading} />
-        )}
-      </form>
+          <div className="payment-input payment-protection">
+            <span>Protection de l'acheteur</span>
+            <span>0,40 €</span>
+          </div>
+          <div className="payment-input payment-shipping">
+            <span>Frais de port</span>
+            <span>1,99 €</span>
+          </div>
+          <div className="payment-input payment-shipping">
+            <span>Frais de port</span>
+            <span>1,99 €</span>
+          </div>
+          <div className="payment-input payment-total">
+            <span>Total</span>
+            <span>{total} €</span>
+          </div>
+          <h2>Vos informations bancaires</h2>
+
+          <CardElement />
+
+          <div className="payment-product-name">
+            <span>
+              Il ne vous reste plus qu'un étape pour vous offrir{" "}
+              <span className="bold">{title}</span>. Vous allez payer{" "}
+              <span className="bold">{total}</span> € (frais de protection et
+              frais de port inclus).
+            </span>
+          </div>
+          {paymentCompleted === true ? (
+            <div className="payment-completed">
+              <h1>Merci. Votre paiement a bien été effectué.</h1>
+              <Link to="/">
+                <button>Retourner à l'acceuil</button>
+              </Link>
+            </div>
+          ) : (
+            <input type="submit" disabled={isLoading} />
+          )}
+        </form>
+      </div>
     </div>
   );
 };
