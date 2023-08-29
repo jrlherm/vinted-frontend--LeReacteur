@@ -20,7 +20,7 @@ const CheckoutForm = ({ userToken, price, title }) => {
       });
       console.log("stripeResponse =>", stripeResponse);
       const stripeToken = stripeResponse.token.id;
-
+      console.log("StripeToken ==> ", stripeToken);
       const response = await axios.post(
         "https://lereacteur-vinted-api.herokuapp.com/payment",
         {
@@ -37,7 +37,7 @@ const CheckoutForm = ({ userToken, price, title }) => {
         console.log("payment completed");
       }
     } catch (error) {
-      console.log(error.data);
+      console.log(error.response.data);
     }
   };
 

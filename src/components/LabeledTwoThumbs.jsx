@@ -3,10 +3,10 @@ import { Range, getTrackBackground } from "react-range";
 
 const STEP = 1;
 const MIN = 0;
-const MAX = 100;
+const MAX = 1000;
 
 const LabeledTwoThumbs = ({ rtl, priceRange, setPriceRange }) => {
-  const [values, setValues] = React.useState([0, 100]);
+  const [values, setValues] = React.useState([0, 1000]);
 
   return (
     <div
