@@ -65,6 +65,11 @@ function App() {
                 minPrice={minPrice}
                 maxPrice={maxPrice}
                 sortByPriceAsc={sortByPriceAsc}
+                setSearch={setSearch}
+                handlePriceChange={handlePriceChange}
+                setMinPrice={setMinPrice}
+                setMaxPrice={setMaxPrice}
+                setSortByPriceAsc={setSortByPriceAsc}
               />
             }
           />

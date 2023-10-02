@@ -34,8 +34,8 @@ const Signin = ({ setUserToken }) => {
 
       Cookies.set("token", response.data.token, { expires: 14 });
 
-      console.log("response.data => ", response.data);
-      console.log("response.data.token => ", response.data.token);
+      // console.log("response.data => ", response.data);
+      // console.log("response.data.token => ", response.data.token);
 
       // If the token has been created redirect to "/"
       if (response.data.token) {

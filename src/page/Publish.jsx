@@ -54,11 +54,10 @@ const Publish = ({ userToken }) => {
         }
       );
 
-      console.log("API answer :", response.data);
+      // console.log("API answer :", response.data);
       navigate(`/offer/${response.data._id}`);
     } catch (error) {
-      console.log(formData);
-
+      // console.log(formData);
       console.error("Error during publish :", error.response);
     }
   };
