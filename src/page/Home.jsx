@@ -10,7 +10,7 @@ const Home = ({ search, minPrice, maxPrice, sortByPriceAsc }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      let link = "https://lereacteur-vinted-api.herokuapp.com/offers";
+      let link = "https://site--vinted--vm2w9vyj7r62.code.run/offers";
       const params = [];
 
       if (search) {
