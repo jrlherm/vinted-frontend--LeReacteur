@@ -48,7 +48,7 @@ const Header = ({
               />
             </div>
 
-            {isHomePage && (
+            {/* {isHomePage && (
               <div className="filters">
                 <div className="switch-container">
                   <p>Trier par prix</p>
@@ -94,7 +94,7 @@ const Header = ({
                   />
                 </div>
               </div>
-            )}
+            )} */}
           </div>
           {Cookies.get("token") ? (
             <div className="header-right">

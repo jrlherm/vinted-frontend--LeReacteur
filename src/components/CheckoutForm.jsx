@@ -18,9 +18,9 @@ const CheckoutForm = ({ userToken, price, title }) => {
       const stripeResponse = await stripe.createToken(cardElement, {
         name: userToken,
       });
-      console.log("stripeResponse =>", stripeResponse);
+      // console.log("stripeResponse =>", stripeResponse);
       const stripeToken = stripeResponse.token.id;
-      console.log("StripeToken ==> ", stripeToken);
+      // console.log("StripeToken ==> ", stripeToken);
       const response = await axios.post(
         "https://site--vinted--vm2w9vyj7r62.code.run/payment",
         {
@@ -29,12 +29,12 @@ const CheckoutForm = ({ userToken, price, title }) => {
           amount: price,
         }
       );
-      console.log("response.data.token ==> ", response.data.token);
+      // console.log("response.data.token ==> ", response.data.token);
       setisLoading(false);
 
       if (response.data.status === "succeeded") {
         setPaymentCompleted(true);
-        console.log("payment completed");
+        // console.log("payment completed");
       }
     } catch (error) {
       console.log(error.response.data);

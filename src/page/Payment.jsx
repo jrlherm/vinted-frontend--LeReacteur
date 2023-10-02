@@ -8,8 +8,8 @@ const Payment = ({ stripePromise, userToken }) => {
   const { price } = location.state;
   const { title } = location.state;
 
-  console.log("name => ", title);
-  console.log("price => ", price);
+  // console.log("name => ", title);
+  // console.log("price => ", price);
 
   return userToken ? (
     <div className="chekout">
