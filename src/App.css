@@ -59,7 +59,11 @@ h1 {
   background-color: transparent;
   color: #2cb1ba;
 }
-
+.hero-link {
+  color: #007782;
+  text-decoration: underline !important;
+  font-size: 14px;
+}
 .header button:last-child {
   background-color: #2cb1ba;
   color: #fff;
