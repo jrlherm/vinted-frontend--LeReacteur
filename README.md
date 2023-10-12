@@ -2,6 +2,9 @@
 
 ## Screenshots
 
+## Live Website
+[https://vinted-jr.netlify.app/](https://vinted-jr.netlify.app/)
+
 ### Running the project
 
 Clone this repository :
