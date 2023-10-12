@@ -5,9 +5,15 @@ const STEP = 1;
 const MIN = 0;
 const MAX = 1000;
 
-const LabeledTwoThumbs = ({ rtl, priceRange, setPriceRange }) => {
+const LabeledTwoThumbs = ({
+  rtl,
+  priceRange,
+  setPriceRange,
+  setMinPrice,
+  setMaxPrice,
+}) => {
   const [values, setValues] = React.useState([0, 1000]);
-
+  // console.log("priceRange =>", priceRange);
   return (
     <div
       style={{
@@ -24,7 +30,11 @@ const LabeledTwoThumbs = ({ rtl, priceRange, setPriceRange }) => {
         min={MIN}
         max={MAX}
         rtl={rtl}
-        onChange={(newRange) => setPriceRange(newRange)}
+        onChange={(newRange) => {
+          setPriceRange(newRange);
+          setMinPrice(newRange[0]);
+          setMaxPrice(newRange[1]);
+        }}
         renderTrack={({ props, children }) => (
           <div
             onMouseDown={props.onMouseDown}

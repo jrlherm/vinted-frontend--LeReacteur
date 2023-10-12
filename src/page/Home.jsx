@@ -24,6 +24,8 @@ const Home = ({
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [priceRange, setPriceRange] = useState([0, 1000]);
+  console.log("maxPrice =>", maxPrice);
+  console.log("minPrice =>", minPrice);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,19 +35,21 @@ const Home = ({
       if (search) {
         params.push(`title=${search}`);
       }
-      if (minPrice !== undefined && maxPrice !== undefined) {
+      if (minPrice !== undefined) {
         params.push(`priceMin=${minPrice}`);
+      }
+      if (maxPrice !== undefined) {
         params.push(`priceMax=${maxPrice}`);
       }
       if (sortByPriceAsc === true) {
         params.push(`sort=price-asc`);
-      } else params.push(`sort=price-desc`);
+      } else {
+        params.push(`sort=price-desc`);
+      }
 
       if (params.length > 0) {
         link = `${link}?${params.join("&")}`;
       }
-
-      // console.log(link);
 
       try {
         const response = await axios.get(link);
@@ -62,8 +66,8 @@ const Home = ({
   return (
     <div className="main">
       <Hero />
-      <div className="filters">
-        <div className="switch-container">
+      <div className="filters container">
+        <div className="switch-container" style={{ marginLeft: "auto" }}>
           <p>Trier par prix</p>
           <Switch
             onChange={() => setSortByPriceAsc(!sortByPriceAsc)}
@@ -96,15 +100,17 @@ const Home = ({
             }
           />
         </div>
-        <div className="price-selector">
+        {/* <div className="price-selector">
           <p>Fourchette de prix</p>
           <LabeledTwoThumbs
             setMinPrice={setMinPrice}
             setMaxPrice={setMaxPrice}
             priceRange={priceRange}
             setPriceRange={setPriceRange}
+            minPrice={minPrice}
+            maxPrice={maxPrice}
           />
-        </div>
+        </div> */}
       </div>
       <Posts data={data} isLoading={isLoading} />
     </div>
