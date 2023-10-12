@@ -13,12 +13,11 @@
 ## Live Website
 [https://vinted-jr.netlify.app/](https://vinted-jr.netlify.app/)
 
-### Running the project
+## Run the project
 
 Clone this repository :
 
 ```console
-
 git clone https://github.com/jrlherm/vinted-frontend--LeReacteur.git
 cd vinted-frontend--LeReacteur
 ```
