@@ -98,6 +98,7 @@ function App() {
         {/* MODALS */}
         {signinVisible && (
           <SigninModal
+            setSignupVisible={setSignupVisible}
             setSigninVisible={setSigninVisible}
             setUserToken={setUserToken}
           />
@@ -105,6 +106,7 @@ function App() {
         {signupVisible && (
           <SignupModal
             setSignupVisible={setSignupVisible}
+            setSigninVisible={setSigninVisible}
             setUserToken={setUserToken}
           />
         )}

@@ -59,15 +59,12 @@ h1 {
   background-color: transparent;
   color: #2cb1ba;
 }
-.hero-link {
-  color: #007782;
-  text-decoration: underline !important;
-  font-size: 14px;
-}
+
 .header button:last-child {
   background-color: #2cb1ba;
   color: #fff;
 }
+
 .header input {
   width: 100%;
   width: 600px;
@@ -132,7 +129,8 @@ h1 {
 /* Posts */
 .posts .container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(235px, 2fr));
+  /* grid-template-columns: repeat(5, 1fr); */
   gap: 10px;
   padding: 20px 0;
 }
@@ -226,72 +224,70 @@ h1 {
   font-weight: 400;
 }
 
-/* SIGNUP */
-.signup,
-.signin {
-  text-align: center;
-}
+/* SIGNUP / SIGNIN */
 .signup h1,
 .signin h1 {
-  margin: 20px 0;
-}
-.signup form,
-.signin form {
-  width: 280px;
-  margin: 0 auto;
-}
-.signup input,
-.signin input {
-  width: 100%;
-  font-size: 13px;
-  padding: 12px;
-  margin-bottom: 6px;
-  border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  columns: rgba(0, 0, 0, 0.05);
-}
-.signup form .enroll-newsletter label {
-  width: 100%;
-  text-align: left;
-  font-family: "Bw Modelica";
-  font-size: 14px;
+  margin-bottom: 28px;
+  text-align: center;
+  margin-top: 32px;
 }
 
-.signup .enroll-newsletter {
+.signin form,
+.signup form {
   display: flex;
-  gap: 10px;
-  text-align: left;
-  margin: 24px 0;
-}
-.signup form p {
-  font-size: 12px;
-  color: #999999;
-  text-align: left;
-  line-height: 18px;
+  flex-direction: column;
+  gap: 24px;
 }
 
-.signup form button,
-.signin form button {
-  width: 100%;
-  background-color: #2cb1ba;
-  color: #fff;
-  padding: 12px;
+.signin input,
+.signup input {
+  padding: 8px 0px;
   border: none;
-  border-radius: 5px;
-  margin: 12px 0;
-  font-size: 16px;
+  border-bottom: 1px solid #999999;
 }
 
-.signup form a,
-.signin form a {
-  color: #2cb1ba;
+.signin input:focus,
+.signup input:focus {
+  outline: none;
+  border-bottom: 1px solid #4d4d4d;
+  transition-duration: 1s;
+}
+
+.signup p {
+  font-size: 12px;
+  text-align: center;
+  color: #666666;
+}
+.signup button,
+.signin button {
+  background-color: #2fb0ba;
+  margin-top: 0;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+}
+
+.signup label {
+  margin-left: 8px;
   font-family: "Bw Modelica";
   font-size: 12px;
+  color: #757575;
+}
+
+.signin a,
+.signup a {
+  text-align: center;
+  font-family: "Bw Modelica";
+  font-size: 12px;
+  color: #666666;
 }
 
 /* MODAL */
 .modal-root {
-  color: red;
+  /* color: red; */
   /* Pour que la modal prenne tout l'écran : */
   position: absolute;
   height: 100vh;
@@ -303,24 +299,37 @@ h1 {
   justify-content: center;
   align-items: center;
   /* Mettre un background noir et transparent : */
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 .modal {
+  position: relative;
   background-color: white;
-  width: 700px;
-  height: 400px;
-  padding: 10px 50px;
+  width: 350px;
+  /* height: 500px; */
+  padding: 10px 20px;
+  padding-bottom: 40px;
   /* Placer le button en haut à droite de la modal : */
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  /* align-items: flex-end; */
   box-shadow: 0px 3px 25px rgba(0, 0, 0, 0.8);
+  border-radius: 4px;
 }
-.modal button {
+button.close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
   display: flex;
+  align-items: flex-end;
+  width: 30px !important;
+  /* margin-left: auto; */
   justify-content: center;
   align-items: center;
   margin: 10px;
+  border: none;
+  background-color: transparent;
+  padding: 12px;
+  /* margin-bottom: 24px; */
 }
 
 /* ------- */
@@ -511,20 +520,25 @@ h1 {
   .header input {
     width: 350px;
   }
-  .posts .container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-  }
 }
 
 @media (max-width: 1024px) {
   .container {
-    width: 980px;
+    width: 780px;
   }
-  .posts .container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+  .offer .container {
+    flex-direction: column;
+  }
+  .offer .offer-right,
+  .offer .offer-left {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+@media (max-width: 762px) {
+  .container {
+    width: 480px;
   }
 }

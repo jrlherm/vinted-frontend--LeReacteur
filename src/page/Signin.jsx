@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
-const Signin = ({ setUserToken }) => {
+const Signin = ({ setUserToken, setSigninVisible, setSignupVisible }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
@@ -40,6 +40,8 @@ const Signin = ({ setUserToken }) => {
       // If the token has been created redirect to "/"
       if (response.data.token) {
         setUserToken(response.data.token);
+        setSigninVisible(false);
+
         navigate("/");
       }
     } catch (error) {
@@ -50,7 +52,7 @@ const Signin = ({ setUserToken }) => {
 
   return (
     <div className="signin">
-      <div className="container">
+      <div className="">
         <h1>Se connecter</h1>
         <form onSubmit={handleSubmit}>
           <input
@@ -71,7 +73,14 @@ const Signin = ({ setUserToken }) => {
           <button type="submit" disabled={isLoading}>
             {isLoading ? "Chargement..." : "Se connecter"}
           </button>
-          <Link to="/signin">Tu n'as pas de compte ? Inscris-toi !</Link>
+          <Link
+            onClick={(event) => {
+              setSigninVisible(false);
+              setSignupVisible(true);
+            }}
+          >
+            Tu n'as pas de compte ? Inscris-toi !
+          </Link>
         </form>
       </div>
     </div>

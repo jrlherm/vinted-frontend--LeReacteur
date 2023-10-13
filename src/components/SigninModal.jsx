@@ -1,6 +1,6 @@
 import Signin from "../page/Signin";
 
-const Modal = ({ setSigninVisible, setUserToken }) => {
+const Modal = ({ setSigninVisible, setSignupVisible, setUserToken }) => {
   return (
     <div
       className="modal-root"
@@ -15,13 +15,21 @@ const Modal = ({ setSigninVisible, setUserToken }) => {
         }}
       >
         <button
+          style={{ width: "30px", margiLeft: "auto" }}
+          className="close-button"
           onClick={(event) => {
             setSigninVisible(false);
           }}
         >
           X
         </button>
-        {<Signin setUserToken={setUserToken} />}
+        {
+          <Signin
+            setUserToken={setUserToken}
+            setSigninVisible={setSigninVisible}
+            setSignupVisible={setSignupVisible}
+          />
+        }
       </div>
     </div>
   );
